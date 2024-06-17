@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TODO LIST</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'poppins', sans-serif;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background:
+        url(./backgroundd.jpg) no-repeat;
+      background-position: center;
+      background-size: cover;
+
+    }
+
+    .container {
+      width: 380px;
+      height: auto;
+      min-height: 380px;
+      padding: 30px;
+      background: transparent;
+      border: 2px solid #e6b7eca1;
+      border-radius: 10px;
+      backdrop-filter: blur(15px);
+
+    }
+
+    h1 {
+      color: blueviolet;
+      text-align: center;
+      margin-bottom: 36px;
+
+    }
+
+    .input-container {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 25px;
+    }
+
+    .todo-input {
+      flex: 1;
+      outline: none;
+      padding: 10px 10px;
+      background-color: transparent;
+      border: 2px solid blueviolet;
+      border-radius: 30px;
+      color: black;
+      font-size: 16px;
+      margin-right: 10px;
+    }
+
+    .todo-input::placeholder {
+      color: black;
+    }
+
+    .add-button {
+      border: none;
+      outline: none;
+      background: #e6b7eca1;
+      color: #fff;
+      font-size: 35px;
+      cursor: pointer;
+      border-radius: 40px;
+      width: 40px;
+      height: 40px;
+
+    }
+
+    .ashu-image {
+      margin: 55px auto;
+      display: block;
+
+    }
+
+    .todo {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: #463c7b;
+      border-radius: 5px;
+      margin: 10px 0;
+      padding: 10px 12px;
+      border: 2px solid #e6b7eca1;
+      transition: all 0.2s ease;
+    }
+
+    .todo:first-child {
+      margin-top: 0;
+    }
+
+    .todo:last-child {
+      margin-bottom: 0;
+    }
+
+    .todo:hover {
+      background-color: #e6b7eca1;
+    }
+
+    .todo label {
+      cursor: pointer;
+      width: fit-content;
+      display: flex;
+      align-items: center;
+      font-family: 'Roboto', sans-serif;
+      color: #eee;
+    }
+
+    .todo span {
+      padding-left: 20px;
+      position: relative;
+      cursor: pointer;
+    }
+
+    span::before {
+      content: "";
+      height: 20px;
+      width: 20px;
+      position: absolute;
+      margin-left: -30px;
+      border-radius: 100px;
+      border: 2px solid #e6b7eca1;
+    }
+
+    input[type='checkbox'] {
+      visibility: hidden;
+    }
+
+    input:checked+span {
+      text-decoration: line-through
+    }
+
+    .todo:hover input:checked+span::before,
+    input:checked+span::before {
+      background: url(./check.svg) 50% 50% no-repeat #09bb21;
+      border-color: #09bb21;
+    }
+
+    .todo:hover span::before {
+      border-color: #eee;
+    }
+
+    .todo .delete-btn {
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+      color: #eee;
+      font-size: 24px;
+    }
+
+    .todos-container {
+      height: 300px;
+      overflow: overlay;
+    }
+
+    
+
+    .filters {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 25px;
+    }
+
+    .filter {
+      color: black;
+      padding: 5px 8px;
+      border-radius: 100px;
+      border: 2px solid blueviolet;
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+
+    .filter.active,
+    .filter:hover {
+      background-color: #e6b7eca1;
+    }
+
+    .delete-all {
+      display: flex;
+      color: black;
+      padding: 7px 15px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .delete-all:hover {
+      border-radius: 5px;
+      background-color: #e6b7eca1;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Todo List</h1>
+    <div class="input-container">
+      <input class="todo-input" placeholder="Add a new task...">
+      <button class="add-button">
+        <i class="fa fa-plus-circle"></i>
+      </button>
+    </div>
+    <div class="filters">
+      <div class="filter" data-filter="completed">Complete</div>
+      <div class="filter" data-filter="pending">Incomplete</div>
+      <div class="delete-all">Delete All</div>
+    </div>
+    <div class="todos-container">
+      <ul class="todos"></ul>
+      <img class="ashu-image" src="./ashu1.svg">
+
+      <img class="ashu-image" src="./ashu.svg">
+    </div>
+  </div>
+  
+</body>
+
+</html>
